@@ -43,8 +43,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
-        viewModel.mainViewModelDelegate = self
+        bindToViewModel()
     }
     
     //MARK: - Actions
@@ -58,6 +57,16 @@ class MainViewController: UIViewController {
         greenArmyTextField.text = ""
         blueArmyTextField.text = ""
         resultLabel.text = ""
+    }
+    
+    private func bindToViewModel(){
+        viewModel.DidFightResult = {[weak self] result in
+            self?.resultLabel.text = result
+        }
+        
+        viewModel.FindError = {[weak self] error in
+            self?.resultLabel.text = error
+        }
     }
     
     //MARK: - Setups
@@ -225,15 +234,4 @@ class MainViewController: UIViewController {
             make.centerX.equalToSuperview()
         }
     }
-}
-
-    //MARK: - Extensions
-
-extension MainViewController: MainViewModelDelegate{
-    
-    func fight(_ result: String) {
-        resultLabel.text = result
-    }
-    
-    
 }

@@ -8,34 +8,26 @@
 import Foundation
 
 struct BattleInfo{
-    
-    private var countOfBattlefields: Int
-    private var greenArmy: [Int]
-    private var blueArmy: [Int]
-    
-    init(countOfBattlefields count: Int, greenArmy: [Int], blueArmy: [Int]){
-        countOfBattlefields = count
-        self.greenArmy = greenArmy
-        self.blueArmy = blueArmy
-    }
-    
-    mutating func fight() -> String{
+    func fight(countOfBattlefields: Int, greenArmy: [Int], blueArmy: [Int]) -> String{
+        
+        var tempGreenArmy = greenArmy
+        var tempBlueArmy = blueArmy
         
         var battlefields: [Battlefield] = []
         var count: Int
         
-        while (!greenArmy.isEmpty && !blueArmy.isEmpty){
+        while (!tempGreenArmy.isEmpty && !tempBlueArmy.isEmpty){
         
             
-            count = countOfBattlefields < min(greenArmy.count, blueArmy.count) ? countOfBattlefields : min(greenArmy.count, blueArmy.count)
+            count = countOfBattlefields < min(tempGreenArmy.count, tempBlueArmy.count) ? countOfBattlefields : min(tempGreenArmy.count, tempBlueArmy.count)
             
             for _ in 0..<count{
                 
-                let indexOfGreenFighter = greenArmy.firstIndex(of: greenArmy.max()!)
-                let greenFighter = greenArmy.remove(at: indexOfGreenFighter!)
+                let indexOfGreenFighter = tempGreenArmy.firstIndex(of: tempGreenArmy.max()!)
+                let greenFighter = tempGreenArmy.remove(at: indexOfGreenFighter!)
                 
-                let indexOfBlueFighter = blueArmy.firstIndex(of: blueArmy.max()!)
-                let blueFighter = blueArmy.remove(at: indexOfBlueFighter!)
+                let indexOfBlueFighter = tempBlueArmy.firstIndex(of: tempBlueArmy.max()!)
+                let blueFighter = tempBlueArmy.remove(at: indexOfBlueFighter!)
                 
                 battlefields.append(Battlefield.init(greenFighter: greenFighter, blueFighter: blueFighter))
             }
@@ -44,10 +36,10 @@ struct BattleInfo{
                 battlefield.letsFight()
                 
                 if battlefield.blueFighter > 0 && battlefield.greenFighter == 0{
-                    blueArmy.append(battlefield.blueFighter)
+                    tempBlueArmy.append(battlefield.blueFighter)
                 }
                 else if (battlefield.greenFighter > 0 && battlefield.blueFighter == 0){
-                    greenArmy.append(battlefield.greenFighter)
+                    tempGreenArmy.append(battlefield.greenFighter)
                 }
                 else{
                     continue
@@ -57,11 +49,11 @@ struct BattleInfo{
             battlefields.removeAll()
         }
         
-        if (greenArmy.isEmpty && !blueArmy.isEmpty){
-            return ResultOfBattle.blueWin(fighters: blueArmy.sorted(by: >)).title
+        if (tempGreenArmy.isEmpty && !tempBlueArmy.isEmpty){
+            return ResultOfBattle.blueWin(fighters: tempBlueArmy.sorted(by: >)).title
         }
-        else if (blueArmy.isEmpty && !greenArmy.isEmpty){
-            return ResultOfBattle.greenWin(fighters: greenArmy.sorted(by: >)).title
+        else if (tempBlueArmy.isEmpty && !tempGreenArmy.isEmpty){
+            return ResultOfBattle.greenWin(fighters: tempGreenArmy.sorted(by: >)).title
         }
         else{
             return ResultOfBattle.draw.title

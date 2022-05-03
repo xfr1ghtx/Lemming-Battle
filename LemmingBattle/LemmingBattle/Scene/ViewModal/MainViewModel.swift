@@ -7,14 +7,12 @@
 
 import Foundation
 
-protocol MainViewModelDelegate{
-    func fight(_ result: String)
-}
-
 final class MainViewModel{
+    
     private var model: BattleInfo!
     
-    var mainViewModelDelegate: MainViewModelDelegate?
+    var DidFightResult: ((String) -> Void)?
+    var FindError: ((String) -> Void)?
     
     init(model: BattleInfo){
         self.model = model
@@ -23,29 +21,29 @@ final class MainViewModel{
     func letsFight(countOfBattlefields: String?, greenArmy: String?, blueArmy: String?){
         
         guard let countOfBattlefields = countOfBattlefields else {
-            mainViewModelDelegate?.fight("Incorrent count of battlefields")
+            FindError?("Incorrent count of battlefields")
             return
         }
         
         guard let greenArmy = greenArmy else {
-            mainViewModelDelegate?.fight("Incorrent green army")
+            FindError?("Incorrent green army")
             return
         }
         
         guard let blueArmy = blueArmy else {
-            mainViewModelDelegate?.fight("Incorrent blue army")
+            FindError?("Incorrent blue army")
             return
         }
         
-        let countModal = Int(countOfBattlefields)
+        let countModel = Int(countOfBattlefields) ?? 1
         
-        let greenArmyModal = greenArmy.compactMap{Int(String($0))}
+        let greenArmyModel = greenArmy.components(separatedBy:" ").map{Int($0) ?? 0}
         
-        let blueArmyModal = blueArmy.compactMap{Int(String($0))}
+        let blueArmyModel = blueArmy.components(separatedBy:" ").map{Int($0) ?? 0}
         
-        self.model = BattleInfo(countOfBattlefields: countModal!, greenArmy: greenArmyModal, blueArmy: blueArmyModal)
+       
         
-        mainViewModelDelegate?.fight(model.fight())
+        DidFightResult?(model.fight(countOfBattlefields: countModel, greenArmy: greenArmyModel, blueArmy: blueArmyModel))
 
         
         

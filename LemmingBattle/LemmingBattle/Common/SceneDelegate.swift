@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        window!.rootViewController = MainViewController(viewModel: MainViewModel(model: BattleInfo(countOfBattlefields: 10, greenArmy: [5, 5], blueArmy: [5, 5])))
+        window!.rootViewController = MainViewController(viewModel: MainViewModel(model: BattleInfo()))
         window!.makeKeyAndVisible()
     }
 
