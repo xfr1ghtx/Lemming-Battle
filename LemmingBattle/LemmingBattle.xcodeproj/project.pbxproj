@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		1EC5A5D3282068A9000C0064 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A5D2282068A9000C0064 /* AppDelegate.swift */; };
 		1EC5A5D5282068A9000C0064 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A5D4282068A9000C0064 /* SceneDelegate.swift */; };
-		1EC5A5D7282068A9000C0064 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A5D6282068A9000C0064 /* ViewController.swift */; };
-		1EC5A5DA282068A9000C0064 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC5A5D8282068A9000C0064 /* Main.storyboard */; };
 		1EC5A5DC282068AA000C0064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC5A5DB282068AA000C0064 /* Assets.xcassets */; };
 		1EC5A5DF282068AA000C0064 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC5A5DD282068AA000C0064 /* LaunchScreen.storyboard */; };
 		1EC5A5EA282068AA000C0064 /* LemmingBattleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A5E9282068AA000C0064 /* LemmingBattleTests.swift */; };
 		1EC5A5F4282068AA000C0064 /* LemmingBattleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A5F3282068AA000C0064 /* LemmingBattleUITests.swift */; };
 		1EC5A5F6282068AA000C0064 /* LemmingBattleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A5F5282068AA000C0064 /* LemmingBattleUITestsLaunchTests.swift */; };
+		1EC5A6132820763D000C0064 /* BattleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A6122820763D000C0064 /* BattleInfo.swift */; };
+		1EC5A6152820774D000C0064 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A6142820774D000C0064 /* MainViewController.swift */; };
+		1EC5A61728207C4B000C0064 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A61628207C4B000C0064 /* MainViewModel.swift */; };
+		1EC5A61A28208012000C0064 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1EC5A61928208012000C0064 /* SnapKit */; };
+		1EC5A61C2820A290000C0064 /* Battlefield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A61B2820A290000C0064 /* Battlefield.swift */; };
+		1EC5A61E2820A2AB000C0064 /* ResultOfBattle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A61D2820A2AB000C0064 /* ResultOfBattle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +43,6 @@
 		1EC5A5CF282068A9000C0064 /* LemmingBattle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LemmingBattle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC5A5D2282068A9000C0064 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC5A5D4282068A9000C0064 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1EC5A5D6282068A9000C0064 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1EC5A5D9282068A9000C0064 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EC5A5DB282068AA000C0064 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EC5A5DE282068AA000C0064 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EC5A5E0282068AA000C0064 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +51,11 @@
 		1EC5A5EF282068AA000C0064 /* LemmingBattleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LemmingBattleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC5A5F3282068AA000C0064 /* LemmingBattleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LemmingBattleUITests.swift; sourceTree = "<group>"; };
 		1EC5A5F5282068AA000C0064 /* LemmingBattleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LemmingBattleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1EC5A6122820763D000C0064 /* BattleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleInfo.swift; sourceTree = "<group>"; };
+		1EC5A6142820774D000C0064 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		1EC5A61628207C4B000C0064 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		1EC5A61B2820A290000C0064 /* Battlefield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battlefield.swift; sourceTree = "<group>"; };
+		1EC5A61D2820A2AB000C0064 /* ResultOfBattle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOfBattle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC5A61A28208012000C0064 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,12 +107,9 @@
 		1EC5A5D1282068A9000C0064 /* LemmingBattle */ = {
 			isa = PBXGroup;
 			children = (
-				1EC5A5D2282068A9000C0064 /* AppDelegate.swift */,
-				1EC5A5D4282068A9000C0064 /* SceneDelegate.swift */,
-				1EC5A5D6282068A9000C0064 /* ViewController.swift */,
-				1EC5A5D8282068A9000C0064 /* Main.storyboard */,
-				1EC5A5DB282068AA000C0064 /* Assets.xcassets */,
-				1EC5A5DD282068AA000C0064 /* LaunchScreen.storyboard */,
+				1EC5A60428206E38000C0064 /* Scene */,
+				1EC5A60328206E1C000C0064 /* LaunchScreen */,
+				1EC5A60228206DC7000C0064 /* Common */,
 				1EC5A5E0282068AA000C0064 /* Info.plist */,
 			);
 			path = LemmingBattle;
@@ -127,6 +132,60 @@
 			path = LemmingBattleUITests;
 			sourceTree = "<group>";
 		};
+		1EC5A60228206DC7000C0064 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1EC5A5D2282068A9000C0064 /* AppDelegate.swift */,
+				1EC5A5D4282068A9000C0064 /* SceneDelegate.swift */,
+				1EC5A5DB282068AA000C0064 /* Assets.xcassets */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1EC5A60328206E1C000C0064 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1EC5A5DD282068AA000C0064 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		1EC5A60428206E38000C0064 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				1EC5A61028207002000C0064 /* View */,
+				1EC5A6112820700C000C0064 /* ViewModal */,
+				1EC5A60B28206FD1000C0064 /* Modal */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		1EC5A60B28206FD1000C0064 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				1EC5A6122820763D000C0064 /* BattleInfo.swift */,
+				1EC5A61B2820A290000C0064 /* Battlefield.swift */,
+				1EC5A61D2820A2AB000C0064 /* ResultOfBattle.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		1EC5A61028207002000C0064 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1EC5A6142820774D000C0064 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1EC5A6112820700C000C0064 /* ViewModal */ = {
+			isa = PBXGroup;
+			children = (
+				1EC5A61628207C4B000C0064 /* MainViewModel.swift */,
+			);
+			path = ViewModal;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +202,9 @@
 			dependencies = (
 			);
 			name = LemmingBattle;
+			packageProductDependencies = (
+				1EC5A61928208012000C0064 /* SnapKit */,
+			);
 			productName = LemmingBattle;
 			productReference = 1EC5A5CF282068A9000C0064 /* LemmingBattle.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +277,9 @@
 				Base,
 			);
 			mainGroup = 1EC5A5C6282068A9000C0064;
+			packageReferences = (
+				1EC5A61828208012000C0064 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 1EC5A5D0282068A9000C0064 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +298,6 @@
 			files = (
 				1EC5A5DF282068AA000C0064 /* LaunchScreen.storyboard in Resources */,
 				1EC5A5DC282068AA000C0064 /* Assets.xcassets in Resources */,
-				1EC5A5DA282068A9000C0064 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +322,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EC5A5D7282068A9000C0064 /* ViewController.swift in Sources */,
+				1EC5A61728207C4B000C0064 /* MainViewModel.swift in Sources */,
+				1EC5A6132820763D000C0064 /* BattleInfo.swift in Sources */,
 				1EC5A5D3282068A9000C0064 /* AppDelegate.swift in Sources */,
 				1EC5A5D5282068A9000C0064 /* SceneDelegate.swift in Sources */,
+				1EC5A61C2820A290000C0064 /* Battlefield.swift in Sources */,
+				1EC5A6152820774D000C0064 /* MainViewController.swift in Sources */,
+				1EC5A61E2820A2AB000C0064 /* ResultOfBattle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +365,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1EC5A5D8282068A9000C0064 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1EC5A5D9282068A9000C0064 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1EC5A5DD282068AA000C0064 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +502,6 @@
 				INFOPLIST_FILE = LemmingBattle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +529,6 @@
 				INFOPLIST_FILE = LemmingBattle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -602,6 +660,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1EC5A61828208012000C0064 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1EC5A61928208012000C0064 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EC5A61828208012000C0064 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1EC5A5C7282068A9000C0064 /* Project object */;
 }
