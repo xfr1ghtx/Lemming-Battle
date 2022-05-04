@@ -7,9 +7,12 @@
 
 import UIKit
 import SnapKit
+import TPKeyboardAvoiding
 
 class MainViewController: UIViewController {
     
+    private let scrollView = TPKeyboardAvoidingScrollView()
+    private let contentView = UIView()
     private let countLabel = UILabel()
     private let countTextField = UITextField()
     private let greenArmyLabel = UILabel()
@@ -46,6 +49,11 @@ class MainViewController: UIViewController {
         bindToViewModel()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        present(UIAlertController.createAlert(withTitle: "Hi", message: "Enter the count of battlefield and the sizes of the green and blue army. It must be a number or numbers separated by a space."), animated: true)
+    }
+    
     //MARK: - Actions
     
     @objc private func tapOnFightButton(){
@@ -60,12 +68,12 @@ class MainViewController: UIViewController {
     }
     
     private func bindToViewModel(){
-        viewModel.DidFightResult = {[weak self] result in
+        viewModel.DidFightIsOver = {[weak self] result in
             self?.resultLabel.text = result
         }
         
-        viewModel.FindError = {[weak self] error in
-            self?.resultLabel.text = error
+        viewModel.DidFindError = {[weak self] message in
+            self?.present(UIAlertController.createAlert(withTitle: "Error", message: message), animated: true)
         }
     }
     
@@ -73,6 +81,7 @@ class MainViewController: UIViewController {
     
     private func setup(){
         superViewSetup()
+        scrollViewSetup()
         countLabelSetup()
         countTextFieldSetup()
         greenArmyLabelSetup()
@@ -89,8 +98,25 @@ class MainViewController: UIViewController {
         view.backgroundColor = .white
     }
     
+    private func scrollViewSetup(){
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        scrollView.keyboardDismissMode = .interactive
+        scrollView.showsVerticalScrollIndicator = false
+        
+        scrollView.snp.makeConstraints{ make in
+            make.edges.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints{make in
+            make.edges.equalTo(scrollView)
+            make.width.equalToSuperview()
+            make.height.equalTo(425)
+        }
+    }
+    
     private func countLabelSetup(){
-        view.addSubview(countLabel)
+        contentView.addSubview(countLabel)
         
         countLabel.text = "Count Of Battlefields"
         countLabel.textAlignment = .center
@@ -104,7 +130,7 @@ class MainViewController: UIViewController {
     }
     
     private func countTextFieldSetup(){
-        view.addSubview(countTextField)
+        contentView.addSubview(countTextField)
         
         countTextField.autocorrectionType = .no
         countTextField.backgroundColor = .systemGray
@@ -112,6 +138,7 @@ class MainViewController: UIViewController {
         countTextField.font = .boldSystemFont(ofSize: 16)
         countTextField.keyboardType = .numbersAndPunctuation
         countTextField.text = "10"
+        countTextField.textColor = .black
         
         countTextField.snp.makeConstraints{make in
             make.top.equalTo(countLabel.snp.bottom).offset(10)
@@ -122,7 +149,7 @@ class MainViewController: UIViewController {
     }
     
     private func greenArmyLabelSetup(){
-        view.addSubview(greenArmyLabel)
+        contentView.addSubview(greenArmyLabel)
         
         greenArmyLabel.text = "Green Army"
         greenArmyLabel.textAlignment = .center
@@ -136,7 +163,7 @@ class MainViewController: UIViewController {
     }
     
     private func greenArmyTextFieldSetup(){
-        view.addSubview(greenArmyTextField)
+        contentView.addSubview(greenArmyTextField)
         
         greenArmyTextField.autocorrectionType = .no
         greenArmyTextField.backgroundColor = .systemGreen
@@ -144,6 +171,7 @@ class MainViewController: UIViewController {
         greenArmyTextField.font = .boldSystemFont(ofSize: 16)
         greenArmyTextField.keyboardType = .numbersAndPunctuation
         greenArmyTextField.text = "5 5"
+        greenArmyTextField.textColor = .black
         
         greenArmyTextField.snp.makeConstraints {make in
             make.top.equalTo(greenArmyLabel.snp.bottom).offset(10)
@@ -155,7 +183,7 @@ class MainViewController: UIViewController {
     }
     
     private func blueArmyLabelSetup(){
-        view.addSubview(blueArmyLabel)
+        contentView.addSubview(blueArmyLabel)
         
         blueArmyLabel.text = "Blue Army"
         blueArmyLabel.textAlignment = .center
@@ -169,7 +197,7 @@ class MainViewController: UIViewController {
     }
     
     private func blueArmyTextFieldSetup(){
-        view.addSubview(blueArmyTextField)
+        contentView.addSubview(blueArmyTextField)
         
         blueArmyTextField.autocorrectionType = .no
         blueArmyTextField.backgroundColor = .systemBlue
@@ -177,6 +205,7 @@ class MainViewController: UIViewController {
         blueArmyTextField.font = .boldSystemFont(ofSize: 16)
         blueArmyTextField.keyboardType = .numbersAndPunctuation
         blueArmyTextField.text = "5 5"
+        blueArmyTextField.textColor = .black
         
         blueArmyTextField.snp.makeConstraints{ make in
             make.top.equalTo(blueArmyLabel.snp.bottom).offset(10)
@@ -187,7 +216,7 @@ class MainViewController: UIViewController {
     }
     
     private func buttonStackViewSetup(){
-        view.addSubview(buttonStackView)
+        contentView.addSubview(buttonStackView)
         
         buttonStackView.axis = .horizontal
         buttonStackView.spacing = 60
@@ -222,7 +251,7 @@ class MainViewController: UIViewController {
     }
     
     private func resultLabelSetup(){
-        view.addSubview(resultLabel)
+        contentView.addSubview(resultLabel)
         
         resultLabel.text = ""
         resultLabel.textAlignment = .center

@@ -11,8 +11,8 @@ final class MainViewModel{
     
     private var model: BattleInfo!
     
-    var DidFightResult: ((String) -> Void)?
-    var FindError: ((String) -> Void)?
+    var DidFightIsOver: ((String) -> Void)?
+    var DidFindError: ((String) -> Void)?
     
     init(model: BattleInfo){
         self.model = model
@@ -20,33 +20,57 @@ final class MainViewModel{
     
     func letsFight(countOfBattlefields: String?, greenArmy: String?, blueArmy: String?){
         
+        var errorMessage = ""
+        
         guard let countOfBattlefields = countOfBattlefields else {
-            FindError?("Incorrent count of battlefields")
             return
         }
         
         guard let greenArmy = greenArmy else {
-            FindError?("Incorrent green army")
             return
         }
         
         guard let blueArmy = blueArmy else {
-            FindError?("Incorrent blue army")
+            return
+        }
+        
+        if !validationInputString(str: countOfBattlefields){
+            errorMessage += "Сount of battlefields must contain a number or numbers separated by a space"
+        }
+        
+        if !validationInputString(str: greenArmy){
+            if errorMessage.isEmpty{
+                errorMessage += "Green army must contain a number or numbers separated by a space"
+            }
+            else{
+                errorMessage = "Green army, \(errorMessage)"
+            }
+        }
+        
+        if !validationInputString(str: blueArmy){
+            if errorMessage.isEmpty{
+                errorMessage += "Blue army must contain a number or numbers separated by a space"
+            }
+            else{
+                errorMessage = "Blue army, \(errorMessage)"
+            }
+        }
+        
+        guard errorMessage.isEmpty else{
+            DidFindError?(errorMessage)
             return
         }
         
         let countModel = Int(countOfBattlefields) ?? 1
-        
         let greenArmyModel = greenArmy.components(separatedBy:" ").map{Int($0) ?? 0}
-        
         let blueArmyModel = blueArmy.components(separatedBy:" ").map{Int($0) ?? 0}
         
        
-        
-        DidFightResult?(model.fight(countOfBattlefields: countModel, greenArmy: greenArmyModel, blueArmy: blueArmyModel))
-
-        
-        
+        DidFightIsOver?(model.fight(countOfBattlefields: countModel, greenArmy: greenArmyModel, blueArmy: blueArmyModel))
+    }
+    
+    private func validationInputString(str: String) -> Bool{
+        return !str.isEmpty && str.rangeOfCharacter(from: .decimalDigits.union(.whitespaces).inverted) == nil
     }
     
 

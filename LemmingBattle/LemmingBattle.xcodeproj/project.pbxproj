@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E29A4D928230A1D00D99034 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E29A4D828230A1D00D99034 /* Alerts.swift */; };
+		1E29A4DC282314CE00D99034 /* TPKeyboardAvoiding in Frameworks */ = {isa = PBXBuildFile; productRef = 1E29A4DB282314CE00D99034 /* TPKeyboardAvoiding */; };
 		1EC5A5D3282068A9000C0064 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A5D2282068A9000C0064 /* AppDelegate.swift */; };
 		1EC5A5D5282068A9000C0064 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A5D4282068A9000C0064 /* SceneDelegate.swift */; };
 		1EC5A5DC282068AA000C0064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC5A5DB282068AA000C0064 /* Assets.xcassets */; };
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E29A4D828230A1D00D99034 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		1EC5A5CF282068A9000C0064 /* LemmingBattle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LemmingBattle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC5A5D2282068A9000C0064 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC5A5D4282068A9000C0064 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E29A4DC282314CE00D99034 /* TPKeyboardAvoiding in Frameworks */,
 				1EC5A61A28208012000C0064 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +88,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E29A4D628230A0200D99034 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1E29A4D728230A1200D99034 /* Alerts */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1E29A4D728230A1200D99034 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				1E29A4D828230A1D00D99034 /* Alerts.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
 		1EC5A5C6282068A9000C0064 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +127,7 @@
 		1EC5A5D1282068A9000C0064 /* LemmingBattle */ = {
 			isa = PBXGroup;
 			children = (
+				1E29A4D628230A0200D99034 /* Helpers */,
 				1EC5A60428206E38000C0064 /* Scene */,
 				1EC5A60328206E1C000C0064 /* LaunchScreen */,
 				1EC5A60228206DC7000C0064 /* Common */,
@@ -204,6 +225,7 @@
 			name = LemmingBattle;
 			packageProductDependencies = (
 				1EC5A61928208012000C0064 /* SnapKit */,
+				1E29A4DB282314CE00D99034 /* TPKeyboardAvoiding */,
 			);
 			productName = LemmingBattle;
 			productReference = 1EC5A5CF282068A9000C0064 /* LemmingBattle.app */;
@@ -279,6 +301,7 @@
 			mainGroup = 1EC5A5C6282068A9000C0064;
 			packageReferences = (
 				1EC5A61828208012000C0064 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				1E29A4DA282314CE00D99034 /* XCRemoteSwiftPackageReference "TPKeyboardAvoiding" */,
 			);
 			productRefGroup = 1EC5A5D0282068A9000C0064 /* Products */;
 			projectDirPath = "";
@@ -324,6 +347,7 @@
 			files = (
 				1EC5A61728207C4B000C0064 /* MainViewModel.swift in Sources */,
 				1EC5A6132820763D000C0064 /* BattleInfo.swift in Sources */,
+				1E29A4D928230A1D00D99034 /* Alerts.swift in Sources */,
 				1EC5A5D3282068A9000C0064 /* AppDelegate.swift in Sources */,
 				1EC5A5D5282068A9000C0064 /* SceneDelegate.swift in Sources */,
 				1EC5A61C2820A290000C0064 /* Battlefield.swift in Sources */,
@@ -662,6 +686,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1E29A4DA282314CE00D99034 /* XCRemoteSwiftPackageReference "TPKeyboardAvoiding" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/michaeltyson/TPKeyboardAvoiding";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		1EC5A61828208012000C0064 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -673,6 +705,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1E29A4DB282314CE00D99034 /* TPKeyboardAvoiding */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E29A4DA282314CE00D99034 /* XCRemoteSwiftPackageReference "TPKeyboardAvoiding" */;
+			productName = TPKeyboardAvoiding;
+		};
 		1EC5A61928208012000C0064 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1EC5A61828208012000C0064 /* XCRemoteSwiftPackageReference "SnapKit" */;
